@@ -10,6 +10,7 @@ import {
 } from "@clerk/clerk-expo";
 import Login from "@/components/Login";
 import * as SecureStore from "expo-secure-store";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 const _layout = () => {
   const publishableKey = process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY!;
@@ -57,23 +58,25 @@ const _layout = () => {
 
   return (
     <>
-      <ClerkProvider publishableKey={publishableKey} tokenCache={tokenCache}>
-        <ClerkLoaded>
-          <SignedIn>
-            <Stack>
-              <Stack.Screen
-                name="(tabs)"
-                options={{
-                  headerShown: false,
-                }}
-              />
-            </Stack>
-          </SignedIn>
-          <SignedOut>
-            <Login />
-          </SignedOut>
-        </ClerkLoaded>
-      </ClerkProvider>
+      <GestureHandlerRootView>
+        <ClerkProvider publishableKey={publishableKey} tokenCache={tokenCache}>
+          <ClerkLoaded>
+            <SignedIn>
+              <Stack>
+                <Stack.Screen
+                  name="(tabs)"
+                  options={{
+                    headerShown: false,
+                  }}
+                />
+              </Stack>
+            </SignedIn>
+            <SignedOut>
+              <Login />
+            </SignedOut>
+          </ClerkLoaded>
+        </ClerkProvider>
+      </GestureHandlerRootView>
     </>
   );
 };
