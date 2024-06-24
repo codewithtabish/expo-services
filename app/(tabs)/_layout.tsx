@@ -1,37 +1,85 @@
-import { Tabs } from 'expo-router';
-import React from 'react';
+import { StyleSheet, Text, View } from "react-native";
+import React from "react";
+import { Tabs } from "expo-router";
+import {
+  AntDesign,
+  Entypo,
+  FontAwesome,
+  Ionicons,
+  MaterialIcons,
+} from "@expo/vector-icons";
+import { Colors } from "@/constants/Colors";
 
-import { TabBarIcon } from '@/components/navigation/TabBarIcon';
-import { Colors } from '@/constants/Colors';
-import { useColorScheme } from '@/hooks/useColorScheme';
-
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
+const _layout = () => {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
         headerShown: false,
-      }}>
+      }}
+    >
       <Tabs.Screen
-        name="index"
+        name="home"
         options={{
-          title: 'Home',
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'home' : 'home-outline'} color={color} />
-          ),
+          tabBarLabel: "Home",
+          tabBarIcon: ({ color, focused }) => {
+            return (
+              <>
+                {focused ? (
+                  <Entypo name="home" size={24} color={Colors.primary} />
+                ) : (
+                  <AntDesign name="home" size={24} color="black" />
+                )}
+              </>
+            );
+          },
         }}
       />
       <Tabs.Screen
         name="explore"
         options={{
-          title: 'Explore',
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'code-slash' : 'code-slash-outline'} color={color} />
-          ),
+          tabBarLabel: "Explore",
+          tabBarIcon: ({ color, focused }) => {
+            return (
+              <>
+                {focused ? (
+                  <FontAwesome
+                    name="wpexplorer"
+                    size={24}
+                    color={Colors.primary}
+                  />
+                ) : (
+                  <FontAwesome name="wpexplorer" size={24} color={"black"} />
+                )}
+              </>
+            );
+          },
+        }}
+      />
+      <Tabs.Screen
+        name="profile"
+        options={{
+          tabBarLabel: "Profile",
+          tabBarIcon: ({ color, focused }) => {
+            return (
+              <>
+                {focused ? (
+                  <MaterialIcons
+                    name="person-3"
+                    size={24}
+                    color={Colors.primary}
+                  />
+                ) : (
+                  <Ionicons name="person-outline" size={24} color="black" />
+                )}
+              </>
+            );
+          },
         }}
       />
     </Tabs>
   );
-}
+};
+
+export default _layout;
+
+const styles = StyleSheet.create({});

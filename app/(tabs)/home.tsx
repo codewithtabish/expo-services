@@ -1,19 +1,25 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StatusBar, StyleSheet, Text, View } from "react-native";
 import React from "react";
+import AppWrapper from "@/components/AppWrapper";
 
-const explore = () => {
+const home = () => {
   return (
-    <View>
-      <Text className="text-pink-500 ">
+    <AppWrapper>
+      <Text
+        className="text-primary"
+        style={{
+          fontFamily: "outfit-bold",
+        }}
+      >
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam minima,
         explicabo molestias quasi aspernatur molestiae quas animi beatae placeat
         iste iure culpa tempora rem. Vitae alias obcaecati mollitia culpa
         distinctio.
       </Text>
-    </View>
+    </AppWrapper>
   );
 };
 
-export default explore;
+export default home;
 
 const styles = StyleSheet.create({});
