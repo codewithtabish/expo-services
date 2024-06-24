@@ -1,29 +1,11 @@
 import React, { useCallback, useMemo, useRef, useEffect } from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  StatusBar,
-  TouchableOpacity,
-} from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import {
   BottomSheetModal,
   BottomSheetView,
   BottomSheetModalProvider,
 } from "@gorhom/bottom-sheet";
-
-import { Stack } from "expo-router";
-import { useFonts } from "expo-font";
-import {
-  ClerkProvider,
-  ClerkLoaded,
-  SignedIn,
-  SignedOut,
-  useOAuth,
-} from "@clerk/clerk-expo";
-import Login from "@/components/Login";
-import * as SecureStore from "expo-secure-store";
-import { GestureHandlerRootView } from "react-native-gesture-handler";
+import { useOAuth } from "@clerk/clerk-expo";
 import { useWarmUpBrowser } from "@/hooks/useWarmUpBrowser";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { SimpleLineIcons } from "@expo/vector-icons";
