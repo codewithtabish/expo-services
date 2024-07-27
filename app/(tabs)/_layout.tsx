@@ -21,6 +21,7 @@ const _layout = () => {
         name="home"
         options={{
           tabBarLabel: "Home",
+
           tabBarIcon: ({ color, focused }) => {
             return (
               <>

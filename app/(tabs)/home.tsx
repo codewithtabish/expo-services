@@ -1,21 +1,20 @@
-import { StatusBar, StyleSheet, Text, View } from "react-native";
+import { ScrollView, StatusBar, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import AppWrapper from "@/components/AppWrapper";
+import Header from "@/components/Header";
+import Slider from "@/components/home/Slider";
+import CategoryList from "@/components/home/CategoryList";
+import BusinessList from "@/components/home/BusinessList";
 
 const home = () => {
   return (
     <AppWrapper>
-      <Text
-        className="text-primary"
-        style={{
-          fontFamily: "outfit-bold",
-        }}
-      >
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam minima,
-        explicabo molestias quasi aspernatur molestiae quas animi beatae placeat
-        iste iure culpa tempora rem. Vitae alias obcaecati mollitia culpa
-        distinctio.
-      </Text>
+      <ScrollView>
+        <Header />
+        <Slider />
+        <CategoryList explore={true} />
+        <BusinessList showName={true} repeat={false} />
+      </ScrollView>
     </AppWrapper>
   );
 };

@@ -19,7 +19,7 @@ const LoginLottie = () => {
           margin: "auto",
         }}
         // Find more Lottie files at https://lottiefiles.com/featured
-        source={require("../assets/anim/loginanimone.json")}
+        source={require("../assets/anim/animtwo.json")}
       />
     </View>
   );
